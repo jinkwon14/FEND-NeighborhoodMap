@@ -8,17 +8,26 @@
   </head>
   <body>
     <!-- Hamburder icon -->
-    <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-    <label for="nav-trigger"></label>
+    <input type="checkbox" id="hamburger" class="hamburger" />
+    <label for="hamburger"></label>
 
     <!-- div button for changing the map to the island view(zoom and center the map to see the whole island) -->
-    <div id="islandView" data-bind="click: islandView">Click for the Island View</div>
+    <div id="islandViewButton" data-bind="click: islandView">Click for the Island View</div>
+    <!-- div button for viewing related images to the selected location -->
+    <div id="locationImageViewButton" data-bind="text: locationImageText, click: locationImageView"></div>
+
+    <!-- Nav-box feature: ADDITIONAL! -->
+    <div id="locationImageLayer" data-bind="style: {display: displayImage() > 3 ? '' : 'none'}">
+      <img id="locationImage" data-bind= "attr: { src: locationImage, title: details }">
+      <button class="locationImageButtons" id="right-button" data-bind="click: increaseImageIndex"> </button>
+      <button class="locationImageButtons" id="left-button" data-bind="click: decreaseImageIndex"> </button>
+    </div>
 
     <!-- Navigation-box: includes drop down menu for options and weather -->
     <aside class="navigation-box">
       <h1>Welcome to Jeju Island!</h1>
 
-      <!-- Nav-box feature 1: Toggle button for dispalying and hiding markers -->
+      <!-- Nav-box feature 1: Toggle button for displaying and hiding markers -->
       <div>
         <button type="button" id="show-hide-listings" name="button" data-bind="click: showHideListings">
           <span data-bind="visible: showListingsMessage"><strong>Show</strong> All Listings</span>
@@ -48,7 +57,7 @@
     </aside>
     <main id="map"></main>
     <article id="mapErrorScreen" data-bind="style: {display: displayError() > 3 ? '' : 'none'}">
-      <h3><p>Thank you very much for visiting our site. Our site is under construction at the moment.</p>
+      <h3><p>Thank you very much for visiting. Our site is under construction at the moment.</p>
       <p>Please visit us again to learn more about Jeju Island!</p></h3>
       <img data-bind="attr : {src: googleErrorImage, title: googleErrorDetails}">
     </article>
@@ -58,6 +67,6 @@
     <script src="style/jquery-3.1.1.min.js"> </script>
     <script src="style/knockout-3.4.1.js"></script>
     <script src="style/map.js"></script>
-    <script async defer src="https://maps.goo!!! gleapis.com/maps/api/js?key=AIzaSyDJbmO4RUULR_TP9G0gGqBLuqwu71d95Vw&libraries=geometry&v=3&callback=initMap" onerror = "mapError()" ></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJbmO4RUULR_TP9G0gGqBLuqwu71d95Vw&libraries=geometry&v=3&callback=initMap" onerror = "mapError()" ></script>
   </body>
 </html>
