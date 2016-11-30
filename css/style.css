@@ -129,8 +129,8 @@ label[for="hamburger"] {
 }
 
 .locationImageButtons {
-    width: 5vw;
-    height: 5vw;
+    width: 15px;
+    height: 15px;
     background-color: transparent;
     position: absolute;
     bottom: 30px;
@@ -502,7 +502,7 @@ label[for="hamburger"] {
         height: 60%;
         width: 60%;
         margin-left: 20%;
-        border: 2px solid red;
+        border: 2px solid;
     }
     #mapErrorScreen h3 {
         font-size: 1.5em;
