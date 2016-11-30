@@ -13,11 +13,9 @@
 
     <!-- div button for changing the map to the island view(zoom and center the map to see the whole island) -->
     <div id="islandViewButton" data-bind="click: islandView">Click for the Island View</div>
-    <!-- div button for viewing related images to the selected location -->
-    <div id="locationImageViewButton" data-bind="text: locationImageText, click: locationImageView"></div>
 
     <!-- Nav-box feature: ADDITIONAL! -->
-    <div id="locationImageLayer" data-bind="style: {display: displayImage() > 3 ? '' : 'none'}">
+    <div id="locationImageLayer">
       <img id="locationImage" data-bind= "attr: { src: locationImage, title: details }">
       <button class="locationImageButtons" id="right-button" data-bind="click: increaseImageIndex"> </button>
       <button class="locationImageButtons" id="left-button" data-bind="click: decreaseImageIndex"> </button>

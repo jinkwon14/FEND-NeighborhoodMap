@@ -179,6 +179,7 @@ function ViewModel() {
         dropMarker(self.currentMarker);
         populateInfoWindow(self.currentMarker, place.info);
         imageSearch(place.titleKo);
+        self.locationImage(imageLinkOnly[0].thumbnailUrl);
     };
 
     // Reference: http://stackoverflow.com/questions/14867906/knockoutjs-value-toggling-in-data-bind
@@ -204,25 +205,11 @@ function ViewModel() {
     islandView = function() {
         zoomToIslandView();
     };
-    self.locationImageView = ko.observable();
-    self.displayImage = ko.observable(1);
-    self.locationImageText = ko.observable('Click to view images.');
     self.imageIndex = ko.observable(0);
-    self.locationImageView.subscribe(function() {
-      if (self.displayImage() < 3) {
-        self.displayImage(4);
-        self.imageIndex(0);
-        self.locationImage(imageLinkOnly[0].thumbnailUrl);
-        self.locationImageText('Click to hide images.');
-      } else {
-        self.displayImage(1);
-        self.locationImageText('Click to view images.');
-      }
-    });
 
     self.increaseImageIndex = ko.observable();
     self.decreaseImageIndex = ko.observable();
-    self.locationImage = ko.observable();
+    self.locationImage = ko.observable('img/JejuDolGrandpa.jpg');
 
     var clicks;
     self.increaseImageIndex = function() {
@@ -321,6 +308,7 @@ function initMap() {
             var thisMarker = this;
             var searchKeyword = locations.filter(function(obj) { return obj.title==thisMarker.title; });
             imageSearch(searchKeyword[0].titleKo);
+            vm.locationImage(imageLinkOnly[0].thumbnailUrl);
         });
     }
 
@@ -504,4 +492,4 @@ function imageSearch(searchParam) {
     });
 };
 
-imageSearch("Russian Blue");
+imageSearch("제주도");
