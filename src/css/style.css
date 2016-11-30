@@ -104,7 +104,7 @@ label[for="hamburger"] {
     position: fixed;
     bottom: 0;
     right: 35px;
-    width: 300px;
+    width: 30%;
     height: auto;
     background: #7AAFF9;
     opacity: 0.2;
@@ -129,24 +129,25 @@ label[for="hamburger"] {
 }
 
 .locationImageButtons {
-    width: 20px;
-    height: 20px;
-    background-color: red;
+    width: 5vw;
+    height: 5vw;
+    background-color: transparent;
     position: absolute;
     bottom: 30px;
 }
 
 #right-button {
-    right: 5px;
+    right: 10px;
 }
 
 #left-button {
-    left: 5px;
+    left: 10px;
 }
 
 .locationImageButtons:hover {
     cursor: pointer;
 }
+
 
 /*2. PHONES + LANDSCAPE*/
 
