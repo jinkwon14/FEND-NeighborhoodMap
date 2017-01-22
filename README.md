@@ -1,6 +1,6 @@
 # Neighborhood Map project
 
-[JEJU-101: Introduction to Jeju Island](https://kwonjh90.github.io/FEND-NeighborhoodMap/))  
+[JEJU-101: Introduction to Jeju Island](https://kwonjh90.github.io/FEND-NeighborhoodMap/)
 
 A single page website intended to introduce Jeju Island; places to visit, eat, and relax.
 
