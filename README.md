@@ -1,6 +1,6 @@
 # Neighborhood Map project
 
-In this project,
+In this project,  
 1. Google API and Accuweather API are used.  
 2. A "Neighborhood Map" of Jeju Island in South Korea is generated.  
 3. Current weather condition of Jeju Island are reported.  
@@ -10,7 +10,7 @@ In this project,
 
 ## How to use
 
-Check out this [live demo](https://kwonjh90.github.io/FEND-NeighborhoodMap/)  
+Check out this [Demo](https://kwonjh90.github.io/FEND-NeighborhoodMap/).  
 Clone or Download from the [FEND-NeighborhoodMap repository](https://github.com/kwonjh90/FEND-NeighborhoodMap/) and run index.html.
 
 
