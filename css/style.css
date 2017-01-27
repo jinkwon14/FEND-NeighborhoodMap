@@ -90,6 +90,7 @@ html, body {
 .navigation-box {
     z-index: 1;
     position: fixed;
+    opacity: 0.7;
 }
 
 .list {
@@ -150,9 +151,7 @@ label[for="hamburger"] {
     right: 35px;
     width: 30%;
     height: auto;
-    background: #7AAFF9;
     opacity: 0.2;
-    border-radius: 5px;
 }
 
 #locationImageLayer:hover {
@@ -173,35 +172,38 @@ label[for="hamburger"] {
 }
 
 .locationImageButtons {
-    width: 15px;
-    height: 15px;
-    background-color: transparent;
-    position: absolute;
-    bottom: 30px;
-}
-
-#right-button {
-    right: 10px;
-}
-
-#left-button {
-    left: 10px;
+    width: 50%;
+    height: 50%;
+    /*background-color: transparent;*/
 }
 
 .locationImageButtons:hover {
     cursor: pointer;
 }
 
+#right-button {
+    position: relative;
+    top: 0;
+    left: 50%;
+    background-color: red;
+}
+
+#left-button {
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: blue;
+}
 
 /*2. PHONES + LANDSCAPE*/
 
 @media (min-width: 240px) and (orientation: landscape) {
     .navigation-box {
-        top: 5px;
-        bottom: 5px;
-        left: 5px;
+        top: 1px;
+        bottom: 1px;
+        left: 1px;
         width: 30%;
-        padding: 5px;
+        padding: 1px;
         border: solid 3px;
         border-radius: 10px;
         background-color: #7AAFF9;
@@ -279,7 +281,7 @@ label[for="hamburger"] {
 
 @media (min-width: 240px) and (orientation: portrait) {
     .navigation-box {
-        top: 5px;
+        top: 1px;
         width: 100%;
         height: 30%;
         padding: 5px;
@@ -359,9 +361,9 @@ label[for="hamburger"] {
 
 @media (min-width: 767px) and (orientation: landscape) {
     .navigation-box {
-        top: 15px;
-        bottom: 15px;
-        left: 5px;
+        top: 1px;
+        bottom: 1px;
+        left: 1px;
         width: 30%;
         padding: 15px;
         border: solid 3px;
@@ -495,9 +497,9 @@ label[for="hamburger"] {
 
 @media screen and (min-width:1200px) {
     .navigation-box {
-        top: 15px;
-        bottom: 15px;
-        left: 5px;
+        top: 1px;
+        bottom: 1px;
+        left: 1px;
         width: 20%;
         min-width: 350px;
         padding: 5px;

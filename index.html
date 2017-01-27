@@ -18,6 +18,7 @@
         <div id="welcome-msg" data-bind="click: fadeaway">
           <p>This may be the paradise you've been looking for...</p>
           <h3>Welcome to Jeju Island, South Korea</h3>
+          <em>click!</em>
         </div>
       </div>
     </div>
@@ -27,13 +28,13 @@
     <label for="hamburger"></label>
 
     <!-- div button for changing the map to the island view(zoom and center the map to see the whole island) -->
-    <div id="islandViewButton" data-bind="click: islandView">Click for the Island View</div>
+    <div id="islandViewButton" data-bind="click: islandView">Island View</div>
 
     <!-- Nav-box feature: ADDITIONAL! -->
     <div id="locationImageLayer">
       <img id="locationImage" data-bind= "attr: { src: locationImage, title: details }">
-      <button class="locationImageButtons" id="right-button" data-bind="click: increaseImageIndex">R</button>
-      <button class="locationImageButtons" id="left-button" data-bind="click: decreaseImageIndex">L</button>
+      <div class="locationImageButtons" id="right-button" data-bind="click: increaseImageIndex"></div>
+      <div class="locationImageButtons" id="left-button" data-bind="click: decreaseImageIndex"></div>
     </div>
 
     <!-- Navigation-box: includes drop down menu for options and weather -->
