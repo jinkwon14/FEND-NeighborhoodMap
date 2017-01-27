@@ -5,8 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Jeju Island!</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="icon" href="img/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
   </head>
+
   <body>
+    <!-- "Click to enter" welcome page -->
+    <div id="splashscreen" data-bind="style: { zIndex: positionNum() == 0 ? '-5' : '4' }">
+      <div id="welcome-img-container">
+        <img id="background-img" src="img/background.jpeg">
+        <div id="welcome-msg" data-bind="click: fadeaway">
+          <p>This may be the paradise you've been looking for...</p>
+          <h3>Welcome to Jeju Island, South Korea</h3>
+        </div>
+      </div>
+    </div>
+
     <!-- Hamburder icon -->
     <input type="checkbox" id="hamburger" class="hamburger" />
     <label for="hamburger"></label>
@@ -17,8 +32,8 @@
     <!-- Nav-box feature: ADDITIONAL! -->
     <div id="locationImageLayer">
       <img id="locationImage" data-bind= "attr: { src: locationImage, title: details }">
-      <button class="locationImageButtons" id="right-button" data-bind="click: increaseImageIndex"> </button>
-      <button class="locationImageButtons" id="left-button" data-bind="click: decreaseImageIndex"> </button>
+      <button class="locationImageButtons" id="right-button" data-bind="click: increaseImageIndex">R</button>
+      <button class="locationImageButtons" id="left-button" data-bind="click: decreaseImageIndex">L</button>
     </div>
 
     <!-- Navigation-box: includes drop down menu for options and weather -->

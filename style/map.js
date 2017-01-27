@@ -147,7 +147,7 @@ for (var i; i < locations.length; i++) {
 var category = jQuery.unique(tags);
 
 
-// View MOdel
+// View Model
 function ViewModel() {
     var self = this;
     self.locationList = ko.observableArray(locations);
@@ -202,6 +202,19 @@ function ViewModel() {
     self.hideListingsMessage.subscribe(function() {
         hideListings();
     });
+
+    // Splash screen
+    // var posnum = 4;
+    self.positionNum = ko.observable(4);
+    self.fadeaway = ko.observable();
+    // posnum = self.positionNum;
+    self.fadeaway.subscribe(function() {
+      self.positionNum(self.positionNum()*0);
+      console.log('clicked! oh gosh')
+    })
+
+
+
     islandView = function() {
         zoomToIslandView();
     };
