@@ -222,7 +222,7 @@ function ViewModel() {
 
     self.increaseImageIndex = ko.observable();
     self.decreaseImageIndex = ko.observable();
-    self.locationImage = ko.observable('img/JejuDolGrandpa.jpg');
+    self.locationImage = ko.observable('img/default.png');
 
     var clicks;
     self.increaseImageIndex = function() {
