@@ -191,7 +191,6 @@ function ViewModel() {
         // Search for additional info from Bing Search.
         imageSearch(place.titleKo);
         self.locationImage(imageLinkOnly[0].thumbnailUrl);
-        self.imageIndex(0);
     };
 
     // Reference: http://stackoverflow.com/questions/14867906/knockoutjs-value-toggling-in-data-bind
