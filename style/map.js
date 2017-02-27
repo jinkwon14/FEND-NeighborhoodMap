@@ -1,4 +1,4 @@
-// -------------------- >> MODEL <<
+// --------------------  MODEL
 // List of locations in the neighborhood, hard coded.
 var locations = [{
     title: 'Home sweet home',
@@ -137,15 +137,23 @@ var locations = [{
     }
 }, ];
 
-// Creates an array of tag strings, which will be used as a filter in the drop down menu.
-var tags = locations.map(function(a) {
-    return a.tag;
-});
-for (var i; i < locations.length; i++) {
-    tags.push(locations[i].tag);
-}
-var category = jQuery.unique(tags);
 
+// Creates an array of tag strings, which will be used as a filter in the drop down menu.
+// var tags = locations.map(function(a) {
+//     return a.tag;
+// });
+
+var tags = [];
+
+locations.forEach(function(location) {
+  tags.push(location.tag);
+});
+
+// for (var i; i < locations.length; i++) {
+//     tags.push(locations[i].tag);
+// }
+
+var category = jQuery.unique(tags);
 
 // View Model
 function ViewModel() {
@@ -156,35 +164,41 @@ function ViewModel() {
     // Filters location by the category selected from a drop down menu
     self.filterListBy = ko.observable();
     self.filteredList = ko.observableArray(locations);
+    // computed observable, whose value is calculated in terms of the observables.
     self.filteredList = ko.computed(function() {
         var filterBy = self.filterListBy();
-        if (!filterBy)
-            return self.locationList();
+        // if filter is NOT-none, filter to show only the selected list.
+        if (!filterBy) return self.locationList();
         return ko.utils.arrayFilter(self.locationList(), function(aLocationInList) {
             return aLocationInList.tag === filterBy;
         });
     });
 
     self.filterListBy.subscribe(function() {
-        // hideListings is required to delete any selection made when new list selection is made
+        // hideListings is required to delete any selection when new list selection is made
         hideListings();
         showListings();
     });
 
     self.currentMarker = ko.observable;
+
+    // Google map infoWindow of the selected "input: place"
     showInformation = function(place) {
-        // hideListings(self.currentMarker);
         self.currentMarker = place.marker;
         showMarker(self.currentMarker);
         dropMarker(self.currentMarker);
         populateInfoWindow(self.currentMarker, place.info);
+        // Search for additional info from Bing Search.
         imageSearch(place.titleKo);
         self.locationImage(imageLinkOnly[0].thumbnailUrl);
+        self.imageIndex(0);
     };
 
     // Reference: http://stackoverflow.com/questions/14867906/knockoutjs-value-toggling-in-data-bind
+    // Display "Show listing" and "Hide Listing" prompt on button.
     self.showListingsMessage = ko.observable(false);
     self.hideListingsMessage = ko.observable(true);
+
     showHideListings = function() {
         this.showListingsMessage(!this.showListingsMessage());
         this.hideListingsMessage(!this.hideListingsMessage());
@@ -198,28 +212,18 @@ function ViewModel() {
 
     self.showListingsMessage.subscribe(function() {
         showListings();
-    })
+    });
+
     self.hideListingsMessage.subscribe(function() {
         hideListings();
     });
 
-    // Splash screen
-    // var posnum = 4;
-    self.positionNum = ko.observable(4);
-    self.fadeaway = ko.observable();
-    // posnum = self.positionNum;
-    self.fadeaway.subscribe(function() {
-      self.positionNum(self.positionNum()*0);
-      console.log('clicked! oh gosh')
-    })
-
-
-
     islandView = function() {
         zoomToIslandView();
     };
-    self.imageIndex = ko.observable(0);
 
+    // --------- Additinoal Image Screen -----------
+    self.imageIndex = ko.observable(0);
     self.increaseImageIndex = ko.observable();
     self.decreaseImageIndex = ko.observable();
     self.locationImage = ko.observable('img/default.png');
@@ -412,7 +416,7 @@ function zoomToIslandView() {
         lat: 33.363385,
         lng: 126.528909
     });
-};
+}
 
 function dropMarker(marker) {
     if (marker.getAnimation() !== null) {
@@ -433,7 +437,7 @@ function hideListings() {
 // of 0, 0 and be anchored at 10, 34).
 function makeMarkerIcon(markerColor) {
     var markerImage = new google.maps.MarkerImage(
-        'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|' + markerColor +
+        'https://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|' + markerColor +
         '|40|_|%E2%80%A2',
         new google.maps.Size(21, 34),
         new google.maps.Point(0, 0),
@@ -449,7 +453,7 @@ var isMetric = false;
 var currentConditionsUrl;
 
 function awxGetCurrentConditions() {
-    currentConditionsUrl = "http://apidev.accuweather.com/currentconditions/v1/224209.json?language=en&apikey=" + AccuweatherApiId;
+    currentConditionsUrl = "https://apidev.accuweather.com/currentconditions/v1/224209.json?language=en&apikey=" + AccuweatherApiId;
     $.ajax({
         type: "GET",
         url: currentConditionsUrl,
